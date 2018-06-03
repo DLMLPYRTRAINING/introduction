@@ -1,0 +1,84 @@
+git installation and setup
+
+1. Sign up to github.com and varify your email id.
+2. download gitbash (32 or 64 bit) from this url:
+https://git-scm.com/download/win
+3. while installing gitbash on the "adjusting your path environment" screen select "use git from windows command prompt".
+4. in Choosing HTTP transport backend screen select "use the openssl library"
+5. rest select default settings.
+6. launch gitbash once installed.
+7. change the mail address to your email address with whihc you have registered your github account.
+8. paste the follwoing code at the consol after the $. ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+9. When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
+Enter a file in which to save the key (/c/Users/you/.ssh/id_rsa):[Press enter]
+10. At the prompt, type a secure passphrase and press enter. you will have to again enter the same passfphrase to confirm.
+Remeber/write down this password. **** THIS IS IMPORTANT
+
+11. Once successfully created you will find the ssh file in your /c/Users/you/.ssh/id_rsa location.
+** you may have to unhide hidden folders to see it.
+
+12. Next type on the console after the $ sigh. eval $(ssh-agent -s). you should get a agent pid number. 
+that number means ssh key agent is running
+
+**Some coumper may pail to start the agent for various reasons. 
+if reinstalling and restarting the system doesn't help you may also procees directly to point 16.
+The only thing will change is that everytime you will try to upoad or syncronize your local folder with the github cloud, 
+you will have to enter the passphrase you have set on point 10.
+
+13. if the step above runs fine. type in the console after the $ sign. ssh-add ~/.ssh/id_rsa.
+this will ask you to enter the passphrase we entered twice in the step 10. **** THIS IS IMPORTANT.
+
+14. enter the following command after the $ sign. clip < ~/.ssh/id_rsa.pub.
+15. In the upper-right corner of any page, click your profile photo, then click Settings.
+
+16. Authentication keysIn the user settings sidebar, click SSH and GPG keys.
+
+17. Click New SSH key or Add SSH key.
+
+18. In the "Title" field, add a descriptive label for the new key. 
+For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
+
+19. Paste your key into the "Key" field.
+20. Click Add SSH key.
+21. If prompted, confirm your GitHub password.
+
+22. enter this command In the git console after the $ sign. git config --global user.email "you@example.com"
+23. enter this command In the git console after the $ sign. git config --global user.name "Your Name"
+
+24. create a local folder within which all your code projects and segments are supposed to be saved. 
+create a subfolder named introduction.
+25. create a new github repository by clicking on the + sign next to the image of the user. 
+give the repository the same name as your subproject introduction.
+
+*** Important: DO NOT check "Initialize this repository with a README" till you are comfortable 
+to create repositories from scratch on your own.
+
+26. at this point it should show up a set of commands under "…or create a new repository on the command line"
+copy them all into a text file.
+
+27. edit the line "git add README.md" to "git add *". This will allow you to sync all the files in the local folder with
+git file server in the cloud.
+
+copy all the commands from the text file.
+
+28. Close any old git bash console. 
+within your local project folder "introduction" right click and select git bash. this should open git bash console.
+
+29. right click and select paste in the git bash. It should create a readme file and create a first commit.
+once done it will ask you to enter your passphrase from line 10. enter the pass phrase and the system will push the data onto the git server.
+
+30. Once upload completed refresh the git project webpage and your readme file should be uploaded and visible.
+
+a sample of the commands are 
+echo "# in1" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin <your projecct path>
+git push -u origin master
+
+31. next time onwards only a subset of the commands will be required to synchronise the local folder with the git server.
+git init
+git add *
+git commit -m "Second commit"
+git push -u origin master
