@@ -204,20 +204,20 @@ print(x_test, y_test)
 print(model2.predict(x_test))
 
 print("This should predict : left-L -> 5,5,5,3")
-# print(model1.predict([[(5*5),(5*3)]])) # works fine
-# print(model1.predict([[(1.5*5),(1.5*4)]])) # works fine
+print(model1.predict([[(5*5),(5*3)]])) # works fine
+print(model1.predict([[(1.5*5),(1.5*4)]])) # works fine
 print(model1.predict([[(20*15),(22*5)]])) # works fine
 
 print("This should predict : Both-B -> 3,5,5,3")
-# print(model1.predict([[(3*5),(5*3)]])) # works fine
-# print(model1.predict([[(2.2*3),(3.3*2)]])) # works fine
-# print(model1.predict([[(6*6),(6*6)]])) # doesn't work
+print(model1.predict([[(3*5),(5*3)]])) # works fine
+print(model1.predict([[(2.2*3),(3.3*2)]])) # works fine
+print(model1.predict([[(6*6),(6*6)]])) # doesn't work
 print(model1.predict([[(3*20),(20*3)]])) # doesn't work
 
 print("This should predict : Right-R -> 3,5,5,5")
-# print(model1.predict([[(3*5),(5*5)]])) # works fine
-# print(model1.predict([[(5.1*1.5),(3.5*2.9)]]))  # works fine
-print(model1.predict([[(31*5),(20*5)]]))
+print(model1.predict([[(3*5),(5*5)]])) # works fine
+print(model1.predict([[(5.1*1.5),(3.5*2.9)]]))  # works fine
+print(model1.predict([[(31*5),(20*5)]])) # works fine
 
 print("SVC----------------")
 
